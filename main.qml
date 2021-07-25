@@ -9,6 +9,7 @@ Window {
 
     // this is a rectangle
     Rectangle{
+        id: red_rectangle
         x: 200
         y: 100
         width: 100
@@ -27,6 +28,8 @@ Window {
             MouseArea{
                 anchors.fill: parent
                 cursorShape: Qt.PointingHandCursor
+
+                onClicked: red_rectangle.width = 200
             }
         }
     }

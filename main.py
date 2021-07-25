@@ -5,7 +5,7 @@ import sys, json
 
 from PySide6.QtGui import QGuiApplication
 from PySide6.QtQml import QQmlApplicationEngine
-from PySide6.QtCore import QObject, Slot
+from PySide6.QtCore import QObject, Slot, Property, Signal
 
 
 class DataManager(QObject):
@@ -24,11 +24,17 @@ class DataManager(QObject):
 
 
 class Clock(QObject):
+    changed = Signal()
+
     def __init__(self):
         super(Clock, self).__init__()
 
         self._current_time = "13:20"
 
+    def _get_current_time(self):
+        return self._current_time
+
+    current_time = Property(str, _get_current_time, notify=changed)
 
 
 class RegistrationForm:
@@ -43,7 +49,6 @@ class RegistrationForm:
 
         self.clock = Clock()
         self.context.setContextProperty("Clock", self.clock)
-
 
 
         self.engine.load(os.fspath(Path(__file__).resolve().parent / "main.qml"))

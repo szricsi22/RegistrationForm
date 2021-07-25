@@ -11,7 +11,7 @@ Window {
     title: "Registration Form"
 
     Text{
-        text: "12:00"
+        text: Clock.current_time
         font.pixelSize: 30
     }
 

@@ -2,6 +2,7 @@
 import os
 from pathlib import Path
 import sys, json
+from datetime import datetime
 
 from PySide6.QtGui import QGuiApplication
 from PySide6.QtQml import QQmlApplicationEngine
@@ -29,14 +30,16 @@ class Clock(QObject):
     def __init__(self):
         super(Clock, self).__init__()
 
-        self._current_time = "18:06"
+        self._current_time = ""
+        self.set_new_time()
 
         self.my_timer = QTimer()
         self.my_timer.timeout.connect(self.set_new_time)
         self.my_timer.start(1000)
 
     def set_new_time(self):
-        self._current_time += "0"
+        now = datetime.now()
+        self._current_time = now.strftime("%H:%M:%S")
         self.changed.emit()
 
     def _get_current_time(self):

@@ -5,12 +5,16 @@ import sys
 
 from PySide6.QtGui import QGuiApplication
 from PySide6.QtQml import QQmlApplicationEngine
-from PySide6.QtCore import QObject
+from PySide6.QtCore import QObject, Slot
 
 
 class DataManager(QObject):
     def __init__(self):
         super(DataManager, self).__init__()
+
+    @Slot()
+    def print_hello(self):
+        print("Hello from DataManager")
 
 
 class RegistrationForm:
@@ -18,6 +22,10 @@ class RegistrationForm:
         self.app = QGuiApplication(sys.argv)
         self.engine = QQmlApplicationEngine()
 
+        self.context = self.engine.rootContext()
+
+        self.data_manager = DataManager()
+        self.context.setContextProperty("UserManager", self.data_manager)
 
 
         self.engine.load(os.fspath(Path(__file__).resolve().parent / "main.qml"))

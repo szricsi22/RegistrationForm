@@ -59,12 +59,6 @@ Window {
         height: 50
         text: "Save"
 
-        onClicked: {
-            print(first_name_field.text)
-            print(last_name_field.text)
-            print(phone_field.text)
-            print(email_field.text)
-            print(address_field.text)
-        }
+        onClicked: UserManager.print_hello()
     }
 }

@@ -1,7 +1,7 @@
 # This Python file uses the following encoding: utf-8
 import os
 from pathlib import Path
-import sys
+import sys, json
 
 from PySide6.QtGui import QGuiApplication
 from PySide6.QtQml import QQmlApplicationEngine
@@ -11,11 +11,16 @@ from PySide6.QtCore import QObject, Slot
 class DataManager(QObject):
     @Slot(str, str, str, str, str)
     def save_action(self, first_name, last_name, phone, email, address):
-        print(first_name)
-        print(last_name)
-        print(phone)
-        print(email)
-        print(address)
+        user_data = {
+            "first_name": first_name,
+            "last_name": last_name,
+            "phone": phone,
+            "email": email,
+            "address": address
+        }
+
+        with open("user_data.json", "w") as f:
+            json.dump(user_data, f)
 
 
 class RegistrationForm:

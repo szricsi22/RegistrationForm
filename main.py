@@ -22,10 +22,16 @@ class RegistrationForm:
         self.app = QGuiApplication(sys.argv)
         self.engine = QQmlApplicationEngine()
 
+
+
+
         self.context = self.engine.rootContext()
 
         self.data_manager = DataManager()
         self.context.setContextProperty("DataManager", self.data_manager)
+
+
+
 
         self.engine.load(os.fspath(Path(__file__).resolve().parent / "main.qml"))
         if not self.engine.rootObjects():

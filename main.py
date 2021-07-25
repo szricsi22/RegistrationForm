@@ -5,7 +5,7 @@ import sys, json
 
 from PySide6.QtGui import QGuiApplication
 from PySide6.QtQml import QQmlApplicationEngine
-from PySide6.QtCore import QObject, Slot, Property, Signal
+from PySide6.QtCore import QObject, Slot, Property, Signal, QTimer
 
 
 class DataManager(QObject):
@@ -29,7 +29,15 @@ class Clock(QObject):
     def __init__(self):
         super(Clock, self).__init__()
 
-        self._current_time = "13:20"
+        self._current_time = "18:06"
+
+        self.my_timer = QTimer()
+        self.my_timer.timeout.connect(self.set_new_time)
+        self.my_timer.start(1000)
+
+    def set_new_time(self):
+        self._current_time += "0"
+        self.changed.emit()
 
     def _get_current_time(self):
         return self._current_time

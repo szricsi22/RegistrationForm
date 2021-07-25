@@ -10,10 +10,9 @@ Window {
     visible: true
     title: "Registration Form"
 
-    Rectangle{
-        width: parent.width
-        height: 400
-        color: "lightgray"
+    Text{
+        text: "12:00"
+        font.pixelSize: 30
     }
 
     ColumnLayout{

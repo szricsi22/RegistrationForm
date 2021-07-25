@@ -23,19 +23,26 @@ class DataManager(QObject):
             json.dump(user_data, f)
 
 
+class Clock(QObject):
+    def __init__(self):
+        super(Clock, self).__init__()
+
+        self._current_time = "13:20"
+
+
+
 class RegistrationForm:
     def __init__(self):
         self.app = QGuiApplication(sys.argv)
         self.engine = QQmlApplicationEngine()
-
-
-
-
         self.context = self.engine.rootContext()
+
 
         self.data_manager = DataManager()
         self.context.setContextProperty("DataManager", self.data_manager)
 
+        self.clock = Clock()
+        self.context.setContextProperty("Clock", self.clock)
 
 
 

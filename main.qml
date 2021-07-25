@@ -59,6 +59,12 @@ Window {
         height: 50
         text: "Save"
 
-        onClicked: DataManager.save_action()
+        onClicked: DataManager.save_action(
+                       first_name_field.text,
+                       last_name_field.text,
+                       phone_field.text,
+                       email_field.text,
+                       address_field.text
+                       )
     }
 }

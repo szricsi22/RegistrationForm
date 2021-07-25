@@ -21,28 +21,50 @@ Window {
         anchors.centerIn: parent
 
         TextField{
+            id: first_name_field
             Layout.fillWidth: true
             placeholderText: "First name"
         }
 
         TextField{
+            id: last_name_field
             Layout.fillWidth: true
             placeholderText: "Last name"
         }
 
         TextField{
+            id: phone_field
             Layout.fillWidth: true
             placeholderText: "Phone"
         }
 
         TextField{
+            id: email_field
             Layout.fillWidth: true
             placeholderText: "Email"
         }
 
         TextField{
+            id: address_field
             Layout.fillWidth: true
             placeholderText: "Address"
+        }
+    }
+
+    Button{
+        anchors.right: parent.right
+        anchors.bottom: parent.bottom
+        anchors.margins: 20
+        width: 100
+        height: 50
+        text: "Save"
+
+        onClicked: {
+            print(first_name_field.text)
+            print(last_name_field.text)
+            print(phone_field.text)
+            print(email_field.text)
+            print(address_field.text)
         }
     }
 }

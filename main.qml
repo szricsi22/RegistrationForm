@@ -10,16 +10,24 @@ Window {
     // this is a rectangle
     Rectangle{
         x: 200
+        y: 100
         width: 100
         height: 100
         color: "red"
         radius: 20
+        rotation: 45
 
         Rectangle{
-            width: 50
-            height: 50
+            width: 60
+            height: 80
             color: "blue"
-            radius: 20
+            radius: 10
+            x: 70
+
+            MouseArea{
+                anchors.fill: parent
+                cursorShape: Qt.PointingHandCursor
+            }
         }
     }
 }

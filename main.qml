@@ -6,31 +6,4 @@ Window {
     height: 480
     visible: true
     title: "Registration Form"
-
-    // this is a rectangle
-    Rectangle{
-        id: red_rectangle
-        x: 200
-        y: 100
-        width: 100
-        height: 100
-        color: "red"
-        radius: 20
-        rotation: 45
-
-        Rectangle{
-            width: 60
-            height: 80
-            color: "blue"
-            radius: 10
-            x: 70
-
-            MouseArea{
-                anchors.fill: parent
-                cursorShape: Qt.PointingHandCursor
-
-                onClicked: red_rectangle.width = 200
-            }
-        }
-    }
 }

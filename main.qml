@@ -59,6 +59,6 @@ Window {
         height: 50
         text: "Save"
 
-        onClicked: DoNothing.print_do_nothing()
+        onClicked: DataManager.save_action()
     }
 }

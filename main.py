@@ -9,12 +9,13 @@ from PySide6.QtCore import QObject, Slot
 
 
 class DataManager(QObject):
-    def __init__(self):
-        super(DataManager, self).__init__()
-
-    @Slot()
-    def print_hello(self):
-        print("Hello from DataManager")
+    @Slot(str, str, str, str, str)
+    def save_action(self, first_name, last_name, phone, email, address):
+        print(first_name)
+        print(last_name)
+        print(phone)
+        print(email)
+        print(address)
 
 
 class RegistrationForm:

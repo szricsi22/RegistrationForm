@@ -25,7 +25,7 @@ class RegistrationForm:
         self.context = self.engine.rootContext()
 
         self.data_manager = DataManager()
-        self.context.setContextProperty("UserManager", self.data_manager)
+        self.context.setContextProperty("DataManager", self.data_manager)
 
         self.engine.load(os.fspath(Path(__file__).resolve().parent / "main.qml"))
         if not self.engine.rootObjects():

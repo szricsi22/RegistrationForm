@@ -59,6 +59,6 @@ Window {
         height: 50
         text: "Save"
 
-        onClicked: UserManager.print_hello()
+        onClicked: DoNothing.print_do_nothing()
     }
 }

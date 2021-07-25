@@ -27,7 +27,6 @@ class RegistrationForm:
         self.data_manager = DataManager()
         self.context.setContextProperty("UserManager", self.data_manager)
 
-
         self.engine.load(os.fspath(Path(__file__).resolve().parent / "main.qml"))
         if not self.engine.rootObjects():
             sys.exit(-1)

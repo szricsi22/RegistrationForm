@@ -4,9 +4,9 @@ from pathlib import Path
 import sys, json
 from datetime import datetime
 
-from PySide6.QtGui import QGuiApplication
-from PySide6.QtQml import QQmlApplicationEngine
-from PySide6.QtCore import QObject, Slot, Property, Signal, QTimer
+from PySide2.QtGui import QGuiApplication
+from PySide2.QtQml import QQmlApplicationEngine
+from PySide2.QtCore import QObject, Slot, Property, Signal, QTimer
 
 
 class DataManager(QObject):
@@ -65,7 +65,7 @@ class RegistrationForm:
         self.engine.load(os.fspath(Path(__file__).resolve().parent / "main.qml"))
         if not self.engine.rootObjects():
             sys.exit(-1)
-        sys.exit(self.app.exec())
+        sys.exit(self.app.exec_())
 
 
 if __name__ == "__main__":

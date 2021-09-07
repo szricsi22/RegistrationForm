@@ -54,13 +54,11 @@ class RegistrationForm:
         self.engine = QQmlApplicationEngine()
         self.context = self.engine.rootContext()
 
-
         self.data_manager = DataManager()
         self.context.setContextProperty("DataManager", self.data_manager)
 
         self.clock = Clock()
         self.context.setContextProperty("Clock", self.clock)
-
 
         self.engine.load(os.fspath(Path(__file__).resolve().parent / "main.qml"))
         if not self.engine.rootObjects():
